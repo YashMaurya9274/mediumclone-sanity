@@ -5,9 +5,10 @@ import { Post } from "../../typings";
 import PortableText from "react-portable-text";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useState } from "react";
+import { ifError } from "assert";
 
 interface IFormInput {
-  id: string;
+  _id: string;
   name: string;
   email: string;
   comment: string;
@@ -18,13 +19,12 @@ interface Props {
 }
 
 function Post({ post }: Props) {
-  console.log(post);
   const [submitted, setSubmitted] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
     fetch("/api/createComment", {
