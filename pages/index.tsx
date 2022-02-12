@@ -1,3 +1,6 @@
+// https://mediumclone-sanity-drab.vercel.app/
+// https://msanity.sanity.studio/
+
 import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/Header";
